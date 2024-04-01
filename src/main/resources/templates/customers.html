@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Customers</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
+
+<h1>Customers</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer : ${customers}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.name}"></td>
+        <td th:text="${customer.email}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<br/>
+
+<h2>Add New Customer</h2>
+
+<form method="post" action="/customers/add">
+    <label for="name">Name:</label><br/>
+    <input type="text" id="name" name="name"><br/>
+    <label for="email">Email:</label><br/>
+    <input type="email" id="email" name="email"><br/>
+    <input type="submit" value="Add Customer">
+</form>
 
 </body>
 </html>
