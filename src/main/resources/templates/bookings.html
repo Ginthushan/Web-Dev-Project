@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Management</title>
 </head>
 <body>
+    <h1>All Bookings</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Customer ID</th>
+            <th>Room ID</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+        <!-- Loop through bookings and display each -->
+        <tr th:each="booking : ${bookings}">
+            <td th:text="${booking.id}"></td>
+            <td th:text="${booking.customerId}"></td>
+            <td th:text="${booking.roomId}"></td>
+            <td th:text="${booking.startDate}"></td>
+            <td th:text="${booking.endDate}"></td>
+        </tr>
+    </table>
 
+    <!-- Add Booking button -->
+    <form th:action="@{/bookings/add}" method="get">
+        <button type="submit">Add Booking</button>
+    </form>
 </body>
 </html>

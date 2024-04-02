@@ -2,77 +2,85 @@ package com.hotelmanagement.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "booking")
 public class Booking {
-    private int id;
-    private int customerId;
-    private int roomId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "room_id", nullable = false)
+    private Room room;
+
+    @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
+
+    @Column(name = "end_date", nullable = false)
     private LocalDate endDate;
 
-    public Booking(){}
+    public Booking() {
+    }
 
-    public Booking(int id, int customerId, int roomId, LocalDate startDate, LocalDate endDate) {
-        this.id = id;
-        this.customerId = customerId;
-        this.roomId = roomId;
+    public Booking(Customer customer, Room room, LocalDate startDate, LocalDate endDate) {
+        this.customer = customer;
+        this.room = room;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    // Getters
-    public int getId() {
+    // Getters and setters
+    public Long getId() {
         return id;
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public int getRoomId() {
-        return roomId;
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     public LocalDate getStartDate() {
         return startDate;
     }
 
-    public LocalDate getEndDate() {
-        return endDate;
-    }
-
-    // Setters
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
-
-    public void setRoomId(int roomId) {
-        this.roomId = roomId;
-    }
-
     public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
     }
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
-    
-    @Override
-    public String toString() {
-        return "Booking{" +
-                "id=" + id +
-                ", customerId=" + customerId +
-                ", roomId=" + roomId +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                '}';
-    }
-
-
-
-
 }
