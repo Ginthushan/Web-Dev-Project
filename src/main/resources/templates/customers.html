@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Customers</title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
-<h1>Customers</h1>
 
-<table border="1">
+<header style="text-align: center;">
+    <h1>Customers</h1>
+</header>
+
+<div class="navbar">
+    <a href="services.html">Services</a>
+    <a href="bookings.html">Bookings</a>
+    <a href="rooms.html">Rooms</a>
+</div>
+
+<table border="3" align="center">
     <thead>
     <tr>
         <th>ID</th>
@@ -26,17 +35,19 @@
     </tbody>
 </table>
 
-<br/>
-
 <h2>Add New Customer</h2>
 
-<form method="post" action="/customers/add">
-    <label for="name">Name:</label><br/>
-    <input type="text" id="name" name="name"><br/>
-    <label for="email">Email:</label><br/>
-    <input type="email" id="email" name="email"><br/>
-    <input type="submit" value="Add Customer">
-</form>
+<div class="container">
+
+    <form method="post" action="/customers/add">
+        <label for="name">Name:</label><br/>
+        <input type="text" id="name" name="name" class="input"><br/>
+        <label for="email">Email:</label><br/>
+        <input type="email" id="email" name="email" class="input"><br/>
+        <input type="submit" value="Add Customer" class="button">
+    </form>
+</div>
+
 
 </body>
 </html>
