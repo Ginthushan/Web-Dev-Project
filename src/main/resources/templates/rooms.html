@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Room List</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>Room List</h1>
-    <table>
+
+    <header style="text-align: center;">
+        <h1>Room List</h1>
+    </header>
+
+    <div class="navbar">
+        <a href="services.html">Services</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="customers.html">Customers</a>
+    </div>
+
+    <table border="3" align="center">
         <thead>
             <tr>
                 <th>ID</th>
@@ -22,6 +33,8 @@
             </tr>
         </tbody>
     </table>
-    <a href="/rooms/add">Add New Room</a>
+    <div class="container">
+        <a href="/rooms/add">Add New Room</a>
+    </div>
 </body>
 </html>
