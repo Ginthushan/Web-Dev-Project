@@ -32,6 +32,10 @@ public class Booking {
 
     @Column(name = "end_date", nullable = false)
     private LocalDate endDate;
+    
+    @ManyToOne
+    @JoinColumn(name = "provided_service_id")
+    private ProvidedService providedService;
 
     public Booking() {
     }

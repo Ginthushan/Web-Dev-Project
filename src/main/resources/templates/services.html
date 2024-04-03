@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Provided Services</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
+<div class="container">
+    <h2>Provided Services</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="providedService : ${providedServices}">
+            <td th:text="${providedService.id}"></td>
+            <td th:text="${providedService.name}"></td>
+            <td th:text="${providedService.description}"></td>
+            <td th:text="${providedService.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

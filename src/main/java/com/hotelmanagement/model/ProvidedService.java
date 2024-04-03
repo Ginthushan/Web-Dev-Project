@@ -1,15 +1,41 @@
 package com.hotelmanagement.model;
 
+import java.util.List;
+
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "provided_service")
 public class ProvidedService {
-    private int id;
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+	
+	@Column(name = "name")
     private String name;
+	
+	@Column(name = "description")
     private String description;
+	
+	@Column(name = "price")
     private double price;
+	
+	@OneToMany(mappedBy = "providedService", cascade = CascadeType.ALL)
+	private List<Booking> bookings;
 
     public ProvidedService() {
     }
 
-    public ProvidedService(int id, String name, String description, double price) {
+    public ProvidedService(Long id, String name, String description, double price) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -17,7 +43,7 @@ public class ProvidedService {
     }
 
     // Getters
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -34,7 +60,7 @@ public class ProvidedService {
     }
 
     // Setters
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -48,6 +74,14 @@ public class ProvidedService {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+    
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
     }
 
     @Override

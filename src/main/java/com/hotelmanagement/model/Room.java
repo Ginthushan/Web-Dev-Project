@@ -16,7 +16,7 @@ import jakarta.persistence.Table;
 public class Room {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 	
 	@Column(name = "room_number")
     private int roomNumber;
@@ -33,7 +33,7 @@ public class Room {
     public Room() {
     }
 
-    public Room(int id, int roomNumber, String type, double price) {
+    public Room(Long id, int roomNumber, String type, double price) {
         this.id = id;
         this.roomNumber = roomNumber;
         this.type = type;
@@ -41,7 +41,7 @@ public class Room {
     }
 
     // Getters
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -62,7 +62,7 @@ public class Room {
     }
 
     // Setters
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
