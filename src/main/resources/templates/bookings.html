@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Management</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>All Bookings</h1>
-    <table border="1">
+    <header style="text-align: center;">
+        <h1>All Bookings</h1>
+    </header>
+
+    <div class="navbar">
+        <a href="services.html">Services</a>
+        <a href="customers.html">Customers</a>
+        <a href="rooms.html">Rooms</a>
+    </div>
+    
+    <table border="3" align="center">
         <tr>
             <th>ID</th>
             <th>Customer ID</th>
@@ -26,8 +36,10 @@
     </table>
 
     <!-- Add Booking button -->
-    <form th:action="@{/bookings/add}" method="get">
-        <button type="submit">Add Booking</button>
-    </form>
+    <div class="container">
+        <form th:action="@{/bookings/add}" method="get">
+            <button type="submit">Add Booking</button>
+        </form>
+    </div>
 </body>
 </html>
