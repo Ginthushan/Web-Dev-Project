@@ -1,40 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Room List</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-
-    <header style="text-align: center;">
-        <h1>Room List</h1>
+    <header>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Booking Management</title>
+        <link rel="stylesheet" href="../static/style.css">
+        <h1 class="logo">E-Commerce</h1>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <nav>
+          <ul>
+            <li><a href="home">Home</a></li>
+            <li><a href="bookings">Booking</a></li>
+            <li><a href="customers">Customers</a></li>
+            <li><a href="rooms">Rooms</a></li>
+            <li><a href="services">Services</a></li>
+          </ul>
+        </nav>
+        <label for="nav-toggle" class="nav-toggle-label">
+          <span></span>
+        </label>
     </header>
 
-    <div class="navbar">
-        <a href="services.html">Services</a>
-        <a href="bookings.html">Bookings</a>
-        <a href="customers.html">Customers</a>
-    </div>
-
-    <table border="3" align="center">
+<div class="content">
+    <h1>All Rooms</h1>
+    <table border="1">
         <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Capacity</th>
-                <!-- Add more columns as needed -->
-            </tr>
+        <tr>
+            <th>ID</th>
+            <th>Room_Number</th>
+            <th>type</th>
+            <th>Price</th>
+        </tr>
         </thead>
         <tbody>
-            <tr th:each="room : ${rooms}">
-                <td th:text="${room.id}"></td>
-                <!-- Add more columns as needed -->
-            </tr>
+        <tr th:each="room : ${rooms}">
+            <td th:text="${room.id}"></td>
+            <td th:text="${room.room_number}"></td>
+            <td th:text="${room.type}"></td>
+            <td th:text="${room.price}"></td>
+        </tr>
         </tbody>
     </table>
-    <div class="container">
-        <a href="/rooms/add">Add New Room</a>
-    </div>
+
+    <br/>
+
+    <h2>Add Room</h2>
+
+    <form method="post" action="/rooms/add">
+	    <label for="name">Name:</label><br/>
+	    <input type="text" id="name" name="name"><br/>
+	    <label for="capacity">Capacity:</label><br/>
+	    <input type="number" id="capacity" name="capacity"><br/>
+	    <label for="type">Type:</label><br/>
+	    <input type="text" id="type" name="type"><br/>
+	    <label for="price">Price:</label><br/>
+	    <input type="number" id="price" name="price"><br/>
+	    <input type="submit" value="Add Room">
+	</form>
+</div>
 </body>
 </html>

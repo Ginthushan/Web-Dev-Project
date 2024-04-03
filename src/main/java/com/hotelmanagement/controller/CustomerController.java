@@ -2,7 +2,6 @@ package com.hotelmanagement.controller;
 
 import com.hotelmanagement.model.Customer;
 import com.hotelmanagement.service.CustomerService;
-import com.hotelmanagement.service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,10 +26,10 @@ public class CustomerController {
         return "customers";
     }
     
-    @GetMapping("/add")
+    @GetMapping("/customers/add")
     public String getAllCustomers(Model model) {
         List<Customer> customers = customerService.getAllCustomers();
         model.addAttribute("customers", customers);
-        return "customer"; // Assuming the view name is "customer.html"
+        return "customers";
     }
 }

@@ -1,31 +1,62 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<header>
     <meta charset="UTF-8">
-    <title>Provided Services</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-<div class="container">
-    <h2>Provided Services</h2>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="providedService : ${providedServices}">
-            <td th:text="${providedService.id}"></td>
-            <td th:text="${providedService.name}"></td>
-            <td th:text="${providedService.description}"></td>
-            <td th:text="${providedService.price}"></td>
-        </tr>
-        </tbody>
-    </table>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Management</title>
+    <link rel="stylesheet" href="/HotelManagement/src/main/resources/static/style.css">
+    <h1 class="logo">E-Commerce</h1>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <nav>
+      <ul>
+        <li><a href="home">Home</a></li>
+        <li><a href="bookings">Booking</a></li>
+        <li><a href="customers">Customers</a></li>
+        <li><a href="rooms">Rooms</a></li>
+        <li><a href="services">Services</a></li>
+      </ul>
+    </nav>
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+    </label>
+</header>
+<div class="content">
+    <body>
+    <div class="container">
+        <h2>Provided Services</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="providedService : ${providedServices}">
+                <td th:text="${providedService.id}"></td>
+                <td th:text="${providedService.name}"></td>
+                <td th:text="${providedService.description}"></td>
+                <td th:text="${providedService.price}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+	    <h2>Add New Service</h2>
+	    <form method="post" action="/providedServices/add">
+	        <label for="name">Name:</label><br/>
+	        <input type="text" id="name" name="name"><br/>
+	        <label for="description">Description:</label><br/>
+	        <input type="text" id="description" name="description"><br/>
+	        <label for="price">Price:</label><br/>
+	        <input type="number" id="price" name="price"><br/>
+	        <input type="submit" value="Add Service">
+	    </form>
+	</div>
+
+    </body>
 </div>
-</body>
 </html>
+

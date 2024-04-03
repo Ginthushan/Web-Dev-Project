@@ -2,52 +2,63 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Customers</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management</title>
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-
-
-<header style="text-align: center;">
-    <h1>Customers</h1>
+<header>
+    <h1 class="logo">E-Commerce</h1>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <nav>
+        <ul>
+            <li><a href="home">Home</a></li>
+            <li><a href="bookings">Booking</a></li>
+            <li><a href="customers">Customers</a></li>
+            <li><a href="rooms">Rooms</a></li>
+            <li><a href="services">Services</a></li>
+        </ul>
+    </nav>
+    <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+    </label>
 </header>
 
-<div class="navbar">
-    <a href="services.html">Services</a>
-    <a href="bookings.html">Bookings</a>
-    <a href="rooms.html">Rooms</a>
-</div>
+<div class="content">
+    <h1>All Customers</h1>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customer : ${customers}">
+            <td th:text="${customer.id}"></td>
+            <td th:text="${customer.name}"></td>
+            <td th:text="${customer.email}"></td>
+            <td th:text="${customer.phone}"></td>
+        </tr>
+        </tbody>
+    </table>
 
-<table border="3" align="center">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="customer : ${customers}">
-        <td th:text="${customer.id}"></td>
-        <td th:text="${customer.name}"></td>
-        <td th:text="${customer.email}"></td>
-    </tr>
-    </tbody>
-</table>
+    <br/>
 
-<h2>Add New Customer</h2>
-
-<div class="container">
+    <h2>Add New Customer</h2>
 
     <form method="post" action="/customers/add">
         <label for="name">Name:</label><br/>
-        <input type="text" id="name" name="name" class="input"><br/>
+        <input type="text" id="name" name="name"><br/>
         <label for="email">Email:</label><br/>
-        <input type="email" id="email" name="email" class="input"><br/>
-        <input type="submit" value="Add Customer" class="button">
+        <input type="email" id="email" name="email"><br/>
+        <label for="phone">Phone:</label><br/>
+        <input type="tel" id="phone" name="phone"><br/>
+        <input type="submit" value="Add Customer">
     </form>
 </div>
-
-
 </body>
 </html>
+
