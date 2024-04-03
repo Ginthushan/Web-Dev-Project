@@ -1,1 +1,38 @@
-@charset "ISO-8859-1";
+body{
+    font-family: Arial;
+    background-color: gainsboro;
+}
+
+header{
+    background-color: lightcoral;
+    padding: 20px;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 50px;
+}
+
+h2{
+    font-weight: bold;
+    font-size: 25;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.input{
+    width: 200px;
+    padding: 5px;
+}
+
+.button{
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
