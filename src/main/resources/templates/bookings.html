@@ -35,13 +35,15 @@
             <th>End Date</th>
         </tr>
         <!-- Loop through bookings and display each -->
+        <!-- Loop through bookings and display each -->
         <tr th:each="booking : ${bookings}">
             <td th:text="${booking.id}"></td>
-            <td th:text="${booking.customerId}"></td>
-            <td th:text="${booking.roomId}"></td>
+            <td th:text="${booking.customer.id}"></td>
+            <td th:text="${booking.room.id}"></td>
             <td th:text="${booking.startDate}"></td>
             <td th:text="${booking.endDate}"></td>
         </tr>
+
     </table>
 
     <!-- Add Booking form -->

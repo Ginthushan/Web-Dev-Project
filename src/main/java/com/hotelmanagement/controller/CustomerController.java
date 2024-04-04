@@ -19,9 +19,8 @@ public class CustomerController {
 	}
 
     @GetMapping("/customers")
-    public String viewHomePage(Model model) {
+    public String getAllCustomers(Model model) {
         model.addAttribute("customers", customerService.getAllCustomers());
-        System.out.println("Customers:" + customerService.getAllCustomers());
         return "customers";
     }
     

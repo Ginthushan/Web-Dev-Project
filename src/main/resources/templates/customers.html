@@ -33,6 +33,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Booking ID's</th>
         </tr>
         </thead>
         <tbody>
@@ -41,6 +42,11 @@
             <td th:text="${customer.name}"></td>
             <td th:text="${customer.email}"></td>
             <td th:text="${customer.phoneNumber}"></td>
+            <td>
+                <ul>
+                    <li th:each="booking : ${customer.bookings}" th:text="${booking.id}"></li>
+                </ul>
+            </td>
         </tr>
         </tbody>
     </table>

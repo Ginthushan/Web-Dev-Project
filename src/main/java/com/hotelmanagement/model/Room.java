@@ -19,13 +19,13 @@ public class Room {
     private Long id;
 	
 	@Column(name = "room_number")
-    private int roomNumber;
+    private String roomNumber;
 	
 	@Column(name = "type")
     private String type;
 	
 	@Column(name = "price")
-    private double price;
+    private String price;
 	
 	@OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
     private List<Booking> bookings;
@@ -33,7 +33,7 @@ public class Room {
     public Room() {
     }
 
-    public Room(Long id, int roomNumber, String type, double price) {
+    public Room(Long id, String roomNumber, String type, String price) {
         this.id = id;
         this.roomNumber = roomNumber;
         this.type = type;
@@ -45,7 +45,7 @@ public class Room {
         return id;
     }
 
-    public int getRoomNumber() {
+    public String getRoomNumber() {
         return roomNumber;
     }
 
@@ -53,7 +53,7 @@ public class Room {
         return type;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
     
@@ -66,7 +66,7 @@ public class Room {
         this.id = id;
     }
 
-    public void setRoomNumber(int roomNumber) {
+    public void setRoomNumber(String roomNumber) {
         this.roomNumber = roomNumber;
     }
 
@@ -74,7 +74,7 @@ public class Room {
         this.type = type;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
     
