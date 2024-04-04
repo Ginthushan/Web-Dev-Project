@@ -8,8 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 public class CustomerController {
 
@@ -22,14 +20,24 @@ public class CustomerController {
 
     @GetMapping("/customers")
     public String viewHomePage(Model model) {
-        model.addAttribute("Customers", customerService.getAllCustomers());
+        model.addAttribute("customers", customerService.getAllCustomers());
+        System.out.println("Customers:" + customerService.getAllCustomers());
         return "customers";
     }
     
-    @GetMapping("/customers/add")
-    public String getAllCustomers(Model model) {
-        List<Customer> customers = customerService.getAllCustomers();
-        model.addAttribute("customers", customers);
-        return "customers";
+    @PostMapping("/customers/add")
+    public String addCustomer(@RequestParam("name") String name,
+                              @RequestParam("email") String email,
+                              @RequestParam("phone") String phoneNumber) {
+        Customer customer = new Customer();
+        customer.setName(name);
+        customer.setEmail(email);
+        customer.setPhoneNumber(phoneNumber);
+
+        // Save the new customer to the database
+        customerService.addCustomer(customer);
+
+        // Redirect to a page after adding the customer (e.g., customer list page)
+        return "redirect:/customers";
     }
 }
