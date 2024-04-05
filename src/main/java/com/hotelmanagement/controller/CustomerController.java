@@ -39,4 +39,12 @@ public class CustomerController {
         // Redirect to a page after adding the customer (e.g., customer list page)
         return "redirect:/customers";
     }
+    
+    @PostMapping("/customers/delete")
+    public String deleteCustomer(@RequestParam("customerId") long customerId) {
+        customerService.deleteCustomer(customerId);
+
+        return "redirect:/customers";
+    }
+    
 }

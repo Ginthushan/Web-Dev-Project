@@ -38,12 +38,6 @@ public class BookingController {
         return "bookings";
     }
 
-    // @GetMapping("/bookings/add")
-    // public String showAddBookingForm(Model model) {
-    //     model.addAttribute("booking", new Booking());
-    //     return "add-booking";
-    // }
-
     @PostMapping("/bookings/add")
     public String addBooking(@RequestParam("customerId") Long customerId,
                          @RequestParam("roomId") Long roomId,
@@ -65,6 +59,12 @@ public class BookingController {
 
     bookingService.addBooking(booking);
     return "redirect:/bookings";
-}
+    }
+    
+    @PostMapping("/bookings/delete")
+    public String deleteBooking(@RequestParam("bookingId") Long bookingId) {
+        bookingService.deleteBooking(bookingId);
+        return "redirect:/bookings";
+    }
 
 }

@@ -25,7 +25,7 @@ public class Room {
     private String type;
 	
 	@Column(name = "price")
-    private String price;
+    private double price;
 	
 	@OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
     private List<Booking> bookings;
@@ -33,7 +33,7 @@ public class Room {
     public Room() {
     }
 
-    public Room(Long id, String roomNumber, String type, String price) {
+    public Room(Long id, String roomNumber, String type, Double price) {
         this.id = id;
         this.roomNumber = roomNumber;
         this.type = type;
@@ -53,7 +53,7 @@ public class Room {
         return type;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
     
@@ -70,17 +70,18 @@ public class Room {
         this.roomNumber = roomNumber;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
     
     public void setBookings(List<Booking> bookings) {
         this.bookings = bookings;
     }
+    
+    public void setType(String type) {
+		this.type = type;
+		
+	}
 
     // toString method
     @Override
@@ -92,5 +93,6 @@ public class Room {
                 ", price=" + price +
                 '}';
     }
+
 }
 

@@ -34,6 +34,7 @@
                 <th>Type</th>
                 <th>Price</th>
                 <th>Bookings (ID)</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -45,6 +46,12 @@
                 <td>
                     <span th:if="${#lists.contains(room.bookings.![isActive], true)}">Booked</span>
                     <span th:unless="${#lists.contains(room.bookings.![isActive], true)}">Available</span>
+                </td>
+                <td>
+                    <form method="post" th:action="@{/rooms/delete}" th:object="${room}">
+                        <input type="hidden" name="roomId" th:value="${room.id}">
+                        <input type="submit" value="Delete">
+                    </form>
                 </td>
             </tr>
         </tbody>
@@ -63,3 +70,4 @@
 </div>
 </body>
 </html>
+
