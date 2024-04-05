@@ -32,6 +32,9 @@ public class Booking {
 
     @Column(name = "end_date", nullable = false)
     private LocalDate endDate;
+
+    @Column(name = "is_active", nullable = false)
+    private boolean isActive; // Indicates if the booking is active or not
     
     @ManyToOne
     @JoinColumn(name = "provided_service_id")
@@ -86,5 +89,13 @@ public class Booking {
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+
+    public boolean getIsActive(){
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive){
+        this.isActive = isActive;
     }
 }

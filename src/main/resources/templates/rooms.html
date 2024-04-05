@@ -33,7 +33,7 @@
                 <th>Room Number</th>
                 <th>Type</th>
                 <th>Price</th>
-                <th>Booking ID's</th>
+                <th>Bookings (ID)</th>
             </tr>
         </thead>
         <tbody>
@@ -43,9 +43,8 @@
                 <td th:text="${room.type}"></td>
                 <td th:text="${room.price}"></td>
                 <td>
-                    <ul>
-                        <li th:each="booking : ${room.bookings}" th:text="${booking.id}"></li>
-                    </ul>
+                    <span th:if="${#lists.contains(room.bookings.![isActive], true)}">Booked</span>
+                    <span th:unless="${#lists.contains(room.bookings.![isActive], true)}">Available</span>
                 </td>
             </tr>
         </tbody>

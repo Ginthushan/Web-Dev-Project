@@ -35,7 +35,6 @@
             <th>End Date</th>
         </tr>
         <!-- Loop through bookings and display each -->
-        <!-- Loop through bookings and display each -->
         <tr th:each="booking : ${bookings}">
             <td th:text="${booking.id}"></td>
             <td th:text="${booking.customer.id}"></td>
@@ -56,10 +55,10 @@
         <input type="text" id="roomId" name="roomId"><br>
         
         <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate" name="startDate"><br>
+        <input type="date" id="startDate" name="startDate" th:min="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}"><br>
         
         <label for="endDate">End Date:</label>
-        <input type="date" id="endDate" name="endDate"><br>
+        <input type="date" id="endDate" name="endDate" th:min="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}"><br>
         
         <button type="submit">Add Booking</button>
     </form>

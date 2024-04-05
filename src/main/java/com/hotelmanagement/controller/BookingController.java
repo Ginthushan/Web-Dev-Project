@@ -58,6 +58,11 @@ public class BookingController {
     booking.setStartDate(startDate);
     booking.setEndDate(endDate);
 
+    // Check if the booking is active based on the current date
+    LocalDate today = LocalDate.now();
+    boolean isActive = today.isEqual(startDate) || (today.isAfter(startDate) && today.isBefore(endDate));
+    booking.setIsActive(isActive);
+
     bookingService.addBooking(booking);
     return "redirect:/bookings";
 }
