@@ -5,7 +5,7 @@ This project is a simple Hotel Management System designed to manage bookings, cu
 ## Team 5
 - Ginthushan Kandasamy (100780258)
 - Michael Cultrera (100699912)
-- Saif Siddiqui ()
+- Saif Siddiqui (100824868)
 - Runnelle Moredo (100822547)
 - Kevin Jiang ()
 
