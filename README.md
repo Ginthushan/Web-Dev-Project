@@ -25,4 +25,9 @@ To run this project, follow these steps:
 1. Run `HotelManagementApplication.java`.
 2. Access the application at [http://localhost:8080/](http://localhost:8080/).
 
+## Special Notes when Using Application
+
+1. Bookings can only be made when at least 1 customer, 1 room, and 1 service have been added.
+2. All inputs must be filled in when creating bookings/customers/rooms/services.
+
 
