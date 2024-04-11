@@ -57,19 +57,15 @@
     <!-- Add Booking form -->
     <h2>Add Booking</h2>
     <form th:action="@{/bookings/add}" method="post">
-        <label for="customerId">Customer ID:</label>
-        <input type="text" id="customerId" name="customerId"><br>
-        
-        <label for="roomId">Room ID:</label>
-        <input type="text" id="roomId" name="roomId"><br>
-        
-        <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate" name="startDate" th:min="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}"><br>
-        
-        <label for="endDate">End Date:</label>
-        <input type="date" id="endDate" name="endDate" th:min="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}"><br>
-        
-        <button type="submit">Add Booking</button>
+        <label for="customerId">Customer ID:</label><br>
+        <input type="text" id="customerId" name="customerId"><br><br>
+        <label for="roomId">Room ID:</label><br>
+        <input type="text" id="roomId" name="roomId"><br><br>
+        <label for="startDate">Start Date:</label><br>
+        <input type="date" id="startDate" name="startDate" th:min="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}"><br><br>
+        <label for="endDate">End Date:</label><br>
+        <input type="date" id="endDate" name="endDate" th:min="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}"><br><br>
+        <input type="submit" value="Add Booking">
     </form>
 </div>
 </body>
