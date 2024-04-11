@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Management</title>
+    <title>Service Management</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
@@ -26,13 +26,14 @@
 <div class="content">
     <div class="container">
         <h2>Provided Services</h2>
-        <table class="table table-striped">
+        <table class="table table-striped" border="1"> <!-- Added border="1" attribute -->
             <thead>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -41,6 +42,12 @@
                 <td th:text="${providedService.name}"></td>
                 <td th:text="${providedService.description}"></td>
                 <td th:text="${providedService.price}"></td>
+                <td>
+                    <form th:action="@{'/providedServices/delete/' + ${providedService.id}}" method="post">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
             </tbody>
         </table>
@@ -60,5 +67,7 @@
 </div>
 </body>
 </html>
+
+
 
 
