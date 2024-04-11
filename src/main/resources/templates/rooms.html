@@ -32,7 +32,7 @@
                 <th>Room Number</th>
                 <th>Type</th>
                 <th>Price</th>
-                <th>Bookings (ID)</th>
+                <th>Room Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -60,11 +60,11 @@
     <h2>Add Room</h2>
     <form method="post" action="/rooms/add">
         <label for="room_number">Room Number:</label><br/>
-        <input type="text" id="room_number" name="room_number"><br/><br/>
+        <input type="text" id="room_number" name="room_number" required><br/><br/>
         <label for="type">Type:</label><br/>
-        <input type="text" id="type" name="type"><br/><br/>
+        <input type="text" id="type" name="type" required><br/><br/>
         <label for="price">Price:</label><br/>
-        <input type="number" id="price" name="price"><br/><br/>
+        <input type="number" id="price" name="price" required><br/><br/>
         <input type="submit" value="Add Room">
     </form>
 </div>

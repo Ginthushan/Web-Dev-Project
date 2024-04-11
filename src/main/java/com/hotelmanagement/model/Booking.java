@@ -1,7 +1,9 @@
 package com.hotelmanagement.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -36,9 +39,8 @@ public class Booking {
     @Column(name = "is_active", nullable = false)
     private boolean isActive; // Indicates if the booking is active or not
     
-    @ManyToOne
-    @JoinColumn(name = "provided_service_id")
-    private ProvidedService providedService;
+    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
+    private List<ProvidedService> providedServices;
 
     public Booking() {
     }
@@ -98,4 +100,26 @@ public class Booking {
     public void setIsActive(boolean isActive){
         this.isActive = isActive;
     }
+
+    public List<ProvidedService> getProvidedServices() {
+        return providedServices;
+    }
+
+    public void setProvidedServices(List<ProvidedService> providedServices) {
+        this.providedServices = providedServices;
+    }
+
+    @Override
+    public String toString() {
+    return "Booking{" +
+            "id=" + id +
+            ", customer=" + customer +
+            ", room=" + room +
+            ", startDate=" + startDate +
+            ", endDate=" + endDate +
+            ", isActive=" + isActive +
+            ", providedServices=" + providedServices + 
+            '}';
+}
+
 }

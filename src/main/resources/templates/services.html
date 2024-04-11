@@ -24,7 +24,7 @@
 </header>
 <div class="content">
     <div class="container">
-        <h1>Provided Services</h1>
+        <h1>All Provided Services</h1>
         <table class="table table-striped" border="1"> <!-- Added border="1" attribute -->
             <thead>
             <tr>
@@ -32,8 +32,7 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price</th>
-                <th>Actions</th>
-                <th>Booking (ID)</th>
+                <th>Actions</th>  
             </tr>
             </thead>
             <tbody>
@@ -45,7 +44,7 @@
                 <td>
                     <form th:action="@{'/providedServices/delete/' + ${providedService.id}}" method="post">
                         <input type="hidden" name="_method" value="DELETE" />
-                        <button type="submit">Delete</button>
+                        <input type="submit" value="Delete">
                     </form>
                 </td>
             </tr>
@@ -56,11 +55,11 @@
 	    <h2>Add New Service</h2>
 	    <form method="post" action="/providedServices/add">
 	        <label for="name">Name:</label><br/>
-	        <input type="text" id="name" name="name"><br/><br/>
+	        <input type="text" id="name" name="name" required><br/><br/>
 	        <label for="description">Description:</label><br/>
-	        <input type="text" id="description" name="description"><br/><br/>
+	        <input type="text" id="description" name="description" required><br/><br/>
 	        <label for="price">Price:</label><br/>
-	        <input type="number" id="price" name="price"><br/><br/>
+	        <input type="number" id="price" name="price" required><br/><br/>
 	        <input type="submit" value="Add Service">
 	    </form>
 	</div>

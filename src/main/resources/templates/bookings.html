@@ -33,7 +33,8 @@
                 <th>Room ID</th>
                 <th>Start Date</th>
                 <th>End Date</th>
-                <th>Actions</th> <!-- Added Actions column -->
+                <th>Provided Services (ID)</th> 
+                <th>Actions</th><!-- Added Actions column -->
             </tr>
         </thead>
         <tbody>
@@ -45,9 +46,14 @@
                 <td th:text="${booking.startDate}"></td>
                 <td th:text="${booking.endDate}"></td>
                 <td>
+                    <ul>
+                        <li th:each="providedService : ${booking.providedServices}" th:text="${providedService.id}"></li>
+                    </ul>
+                </td>
+                <td>
                     <form th:action="@{/bookings/delete}" method="post">
                         <input type="hidden" name="bookingId" th:value="${booking.id}">
-                        <button type="submit">Delete</button>
+                        <input type="submit" value="Delete">
                     </form>
                 </td>
             </tr>
@@ -58,15 +64,29 @@
     <h2>Add Booking</h2>
     <form th:action="@{/bookings/add}" method="post">
         <label for="customerId">Customer ID:</label><br>
-        <input type="text" id="customerId" name="customerId"><br><br>
+        <input type="text" id="customerId" name="customerId" required><br><br>
         <label for="roomId">Room ID:</label><br>
-        <input type="text" id="roomId" name="roomId"><br><br>
+        <input type="text" id="roomId" name="roomId" required><br><br>
+        <label for="provServiceId">Provided Service ID(s) <br> (seperate with commas):</label><br>
+        <input type="text" id="provServiceId" name="provServiceId" required><br><br>
         <label for="startDate">Start Date:</label><br>
-        <input type="date" id="startDate" name="startDate" th:min="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}"><br><br>
+        <input type="date" id="startDate" name="startDate" th:min="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}" required><br><br>
         <label for="endDate">End Date:</label><br>
-        <input type="date" id="endDate" name="endDate" th:min="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}"><br><br>
+        <input type="date" id="endDate" name="endDate" th:min="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}" required><br><br>
         <input type="submit" value="Add Booking">
     </form>
+
+    <script>
+        // Get references to the start date and end date input fields
+        var startDateInput = document.getElementById("startDate");
+        var endDateInput = document.getElementById("endDate");
+    
+        // When the start date changes, update the min attribute of the end date input to be the same as the start date
+        startDateInput.addEventListener("change", function() {
+            endDateInput.min = startDateInput.value;
+        });
+    </script>
+
 </div>
 </body>
 </html>
