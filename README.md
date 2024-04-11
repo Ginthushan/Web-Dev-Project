@@ -7,7 +7,7 @@ This project is a simple Hotel Management System designed to manage bookings, cu
 - Michael Cultrera (100699912)
 - Saif Siddiqui (100824868)
 - Runnelle Moredo (100822547)
-- Kevin Jiang ()
+- Kevin Jiang (100823903)
 
 
 ## Technologies Used
