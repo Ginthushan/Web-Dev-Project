@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<header>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Management</title>
     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
     <h1 class="logo">Hotel Management</h1>
-    <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <nav>
-      <ul>
-        <!--       Incase the uncommented is for thymeleaf  
-        <li><a href="home.html">Home</a></li>
-        <li><a href="bookings.html">Booking</a></li>
-        <li><a href="customers.html">Customers</a></li>
-        <li><a href="rooms.html">Rooms</a></li>
-        <li><a href="services.html">Services</a></li> 
-        -->
-        <li><a href="home">Home</a></li>
-        <li><a href="bookings">Booking</a></li>
-        <li><a href="customers">Customers</a></li>
-        <li><a href="rooms">Rooms</a></li>
-        <li><a href="services">Services</a></li>
-      </ul>
+        <ul>
+            <li><a href="home">Home</a></li>
+            <li><a href="bookings">Booking</a></li>
+            <li><a href="customers">Customers</a></li>
+            <li><a href="rooms">Rooms</a></li>
+            <li><a href="services">Services</a></li>
+        </ul>
     </nav>
     <label for="nav-toggle" class="nav-toggle-label">
-      <span></span>
+        <span></span>
     </label>
 </header>
 
-<div class="content">
-    <body>
-        <h1>Home Page</h1>
-    </body>
+<div class="content-home">
+    <h1 class="welcome-message">Welcome to the Hotel Management System</h1>
+    <p class="description">
+        The Hotel Management System allows you to efficiently manage various aspects of your hotel, including bookings,
+        customers, rooms, and services. With user-friendly interfaces and comprehensive functionalities, our system
+        helps streamline your hotel operations, enhance guest experience, and maximize revenue.
+    </p>
+    <img src="Hotel.jpg" alt="Hotel Image" class="hotel-image">
+    <h1 class="welcome-message">About Us</h1>
+    <p class="authors">
+        We are part of Ontario Tech University's CSCI3230U Winter 2024 course, composed of <br>
+        Ginthushan Kandasamy, Michael Cultrera, Saif Siddiqui, Runnelle Moredo, and Kevin Jiang.
+    </p>
 </div>
+</body>
 </html>
+
+
