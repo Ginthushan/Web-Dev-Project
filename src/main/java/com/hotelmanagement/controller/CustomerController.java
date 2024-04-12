@@ -18,12 +18,14 @@ public class CustomerController {
 		
 	}
 
+	// Retrieves all customers and renders them on the customers page.
     @GetMapping("/customers")
     public String getAllCustomers(Model model) {
         model.addAttribute("customers", customerService.getAllCustomers());
         return "customers";
     }
     
+    // Adds a new customer with name, email, and phone number to the system.
     @PostMapping("/customers/add")
     public String addCustomer(@RequestParam("name") String name,
                               @RequestParam("email") String email,
@@ -40,6 +42,7 @@ public class CustomerController {
         return "redirect:/customers";
     }
     
+    // Deletes a customer by their ID.
     @PostMapping("/customers/delete")
     public String deleteCustomer(@RequestParam("customerId") long customerId) {
         customerService.deleteCustomer(customerId);

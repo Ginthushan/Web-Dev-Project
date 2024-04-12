@@ -40,7 +40,7 @@ public class ProvidedService {
         this.price = price;
     }
 
-    // Getters
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -57,7 +57,6 @@ public class ProvidedService {
         return price;
     }
 
-    // Setters
     public void setId(Long id) {
         this.id = id;
     }

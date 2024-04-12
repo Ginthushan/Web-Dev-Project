@@ -7,5 +7,4 @@ import com.hotelmanagement.model.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
-    // You can add custom query methods here if needed
 }

@@ -1,3 +1,4 @@
+// Provides services related to booking operations such as retrieving, adding, and deleting bookings.
 package com.hotelmanagement.service;
 
 import com.hotelmanagement.model.Booking;
@@ -17,18 +18,22 @@ public class BookingService {
         this.bookingRepository = bookingRepository;
     }
 
+ // Retrieves all bookings from the database.
     public List<Booking> getAllBookings() {
         return bookingRepository.findAll();
     }
 
+ // Retrieves a booking by its ID.
     public Booking getBookingById(Long id) {
         return bookingRepository.findById(id).orElse(null);
     }
 
+ // Adds a new booking to the database.
     public void addBooking(Booking booking) {
         bookingRepository.save(booking);
     }
 
+ // Deletes a booking by its ID.
     public void deleteBooking(Long id) {
         bookingRepository.deleteById(id);
     }

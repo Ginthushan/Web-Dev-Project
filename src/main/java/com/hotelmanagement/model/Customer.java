@@ -41,7 +41,7 @@ public class Customer {
         this.email = email;
     }
 
-    // Getters
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -62,7 +62,6 @@ public class Customer {
         return bookings;
     }
 
-    // Setters
     public void setId(Long id) {
         this.id = id;
     }

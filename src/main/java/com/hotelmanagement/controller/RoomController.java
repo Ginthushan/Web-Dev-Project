@@ -13,12 +13,14 @@ public class RoomController {
     @Autowired
     private RoomService roomService;
 
+    // Retrieves all rooms and renders them on the rooms page.
     @GetMapping("/rooms")
     public String getAllRooms(Model model) {
         model.addAttribute("rooms", roomService.getAllRooms());
         return "rooms";
     }
 
+    // Adds a new room with room number, type, and price to the system.
     @PostMapping("/rooms/add")
     public String addRoom(@RequestParam("room_number") String roomNumber,
                           @RequestParam("type") String type,
@@ -31,6 +33,7 @@ public class RoomController {
         return "redirect:/rooms";
     }
 
+    // Deletes a room by its ID.
     @PostMapping("/rooms/delete")
     public String deleteRoom(@RequestParam("roomId") long roomId) {
         roomService.deleteRoom(roomId);

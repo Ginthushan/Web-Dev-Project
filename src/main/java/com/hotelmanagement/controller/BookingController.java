@@ -37,13 +37,15 @@ public class BookingController {
         this.roomService = roomService;
         this.providedServiceService = providedServiceService;
     }
-
+    
+    // Retrieves all bookings and renders them on the bookings page.
     @GetMapping("/bookings")
     public String getAllBookings(Model model) {
         model.addAttribute("bookings", bookingService.getAllBookings());
         return "bookings";
     }
 
+    // Adds a new booking with customer, room, start date, end date, and optional provided services to the system.
     @PostMapping("/bookings/add")
     public String addBooking(@RequestParam("customerId") Long customerId,
                          @RequestParam("roomId") Long roomId,

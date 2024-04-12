@@ -40,7 +40,7 @@ public class Room {
         this.price = price;
     }
 
-    // Getters
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -60,8 +60,7 @@ public class Room {
     public List<Booking> getBookings() {
         return bookings;
     }
-
-    // Setters
+    
     public void setId(Long id) {
         this.id = id;
     }
